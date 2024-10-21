@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 
-dir="/home/$USER/Github"
+dir="/Users/$USER/Github"
 
 if [ ! -d $dir ]
 then
