@@ -32,13 +32,13 @@ cd Python-3.13.2
 ./configure --prefix=/opt/Python-3.13.2 --enable-unicode=ucs4 --enable-shared LDFLAGS="${LDFLAGS} -Wl,-rpath=/opt/Python-3.13.2/lib" --with-openssl=/usr/local/openssl CXX="/usr/bin/g++"
 make -j $(nproc)
 make altinstall
-sudo python311 -m pip install --upgrade pip
+sudo python3.13 -m pip install --upgrade pip
 
-# Strip the Python 3.11 binary:
-strip /opt/Python-3.11.4/lib/libpython3.11.so.1.0
+# Strip the Python 3.13 binary:
+strip /opt/Python-3.13.2/lib/libpython3.13.so.1.0
 
-#Add Python 3.11 to appropriate locations
-ln -s /opt/Python-3.11.4/bin/python3.11 /usr/local/bin/python311
-ln -s /opt/Python-3.11.4/bin/python3.11 /usr/bin/python311
-ln -s /opt/Python-3.11.4/bin/pip3.11 /usr/local/bin/pip311
-ln -s /opt/Python-3.11.4/bin/pip3.11 /usr/bin/pip311
+#Add Python 3.13 to appropriate locations
+ln -s /opt/Python-3.13.2/bin/python3.13 /usr/local/bin/python3.13
+ln -s /opt/Python-3.13.2/bin/python3.13 /usr/bin/python3.13
+ln -s /opt/Python-3.13.2/bin/pip3.13 /usr/local/bin/pip3.13
+ln -s /opt/Python-3.13.2/bin/pip3.13 /usr/bin/pip3.13
