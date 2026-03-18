@@ -1,8 +1,9 @@
 #!/bin/sh
-# Install Python 3.11.4:
+# Install Python 3.13.2:
 #
 # Reference
 # https://danieleriksson.net/2017/02/08/how-to-install-latest-python-on-centos/
+CXX="/usr/bin/g++"
 
 # Install openssl
 cd /opt
@@ -21,15 +22,14 @@ EOF
 source /etc/profile.d/openssl.sh
 reset
 
-
 # Compile Python 
-yum install zlib zlib-devel -y
+yum install zlib zlib-devel sqlite sqlite-devel ncurses ncurses-devel mpdecimal-devel readline-devel -y
 cd /opt
-wget https://www.python.org/ftp/python/3.11.4/Python-3.11.4.tar.xz
-tar xf Python-3.11.4.tar.xz
-rm Python-3.11.4.tar.xz
-cd Python-3.11.4
-./configure --prefix=/opt/Python-3.11.4 --enable-unicode=ucs4 --enable-shared LDFLAGS="${LDFLAGS} -Wl,-rpath=/opt/Python-3.11.4/lib" --with-openssl=/usr/local/openssl 
+wget https://www.python.org/ftp/python/3.13.2/Python-3.13.2.tar.xz
+tar xf Python-3.13.2.tar.xz
+rm Python-3.13.2.tar.xz
+cd Python-3.13.2
+./configure --prefix=/opt/Python-3.13.2 --enable-unicode=ucs4 --enable-shared LDFLAGS="${LDFLAGS} -Wl,-rpath=/opt/Python-3.13.2/lib" --with-openssl=/usr/local/openssl CXX="/usr/bin/g++"
 make -j $(nproc)
 make altinstall
 sudo python311 -m pip install --upgrade pip
