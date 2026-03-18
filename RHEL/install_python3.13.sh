@@ -37,8 +37,15 @@ sudo python3.13 -m pip install --upgrade pip
 # Strip the Python 3.13 binary:
 strip /opt/Python-3.13.2/lib/libpython3.13.so.1.0
 
-#Add Python 3.13 to appropriate locations
+# Add Python3.13 to appropriate locations
 ln -s /opt/Python-3.13.2/bin/python3.13 /usr/local/bin/python3.13
 ln -s /opt/Python-3.13.2/bin/python3.13 /usr/bin/python3.13
+
+# Install & setup Pip; Force the installation of `setuptools` and `wheel` on newer Python versions
+wget https://bootstrap.pypa.io/get-pip.py
+python3.13 get-pip.py
+python3.13 get-pip.py setuptools wheel
+
+# Add Pip3.13 to appropriate locations
 ln -s /opt/Python-3.13.2/bin/pip3.13 /usr/local/bin/pip3.13
 ln -s /opt/Python-3.13.2/bin/pip3.13 /usr/bin/pip3.13
