@@ -3,6 +3,8 @@
 #
 
 ver='2.2.1'
+
+cd /usr/local/src
 wget https://ftp.gnu.org/gnu/wget/wget2-latest.tar.gz
 tar xvzf wget-$ver.tar.gz
 cd wget-$ver
